@@ -1,0 +1,55 @@
+<div class="contact-list my-3">
+  <div class="row">
+    <div class="col-md-9">
+      <h2>Список контактов</h2>
+    </div>
+    <div class="col-md-3">
+      <button class="btn-enter m-0" [routerLink]="['/contact-new']" type="button">Добавить контакт</button>
+    </div>
+  </div>
+
+  <table *ngIf="contacts?.length > 0; else noContacts" class="table table-hover table-responsive-md mt-2">
+    <thead class="header">
+    <tr>
+      <th>#</th>
+      <th>Имя</th>
+      <th>Email</th>
+      <th>Телефон</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="contact-row" *ngFor="let contact of contacts; trackBy: contactsTrackByFn">
+      <th scope="row">{{contact.id}}</th>
+      <td>{{contact.name}}</td>
+      <td>{{contact.email}}</td>
+      <td>{{contact.phone}}</td>
+      <td>
+
+        <div class="float-right">
+
+          <button [routerLink]="['/contacts-details/', contact.id]" class="btn btn-outline-primary mb-1 btn-sm  mx-2">
+            Посмотреть
+          </button>
+
+          <button [routerLink]="['/contact-edit/', contact.id]" class="btn btn-outline-success mb-1 btn-sm mx-2">
+            Редактировать
+          </button>
+
+          <button (click)="removeContact(contact)" class="btn btn-outline-danger mb-1 btn-sm mx-2">
+            Удалить
+          </button>
+
+        </div>
+
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+
+  <ng-template #noContacts>
+    <span>Список контактов в приложении пустой. Добавьте новый контакт.</span>
+  </ng-template>
+
+</div>

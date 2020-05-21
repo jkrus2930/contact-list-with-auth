@@ -1,0 +1,42 @@
+<div class="app-form mt-5">
+  <form
+    class="form"
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label class="moved-label">
+        <input
+          type="text"
+          name="username"
+          autocomplete="off"
+          formControlName="username"
+          class="form-control"
+          [ngClass]="{'error-field': submitted && loginFormFields.username.errors}"
+          placeholder="&nbsp;"
+        />
+        <span>Логин / Email</span>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label class="moved-label">
+        <input
+          passwordDisplay
+          type="password"
+          name="password"
+          formControlName="password"
+          class="form-control"
+          [ngClass]="{'error-field': submitted && loginFormFields.password.errors}"
+          placeholder="&nbsp;"
+        />
+        <span>Пароль</span>
+      </label>
+    </div>
+
+    <button class="btn-enter" type="submit">Войти</button>
+    <div class="text-center">
+      <span>Нет аккаунта ? <a class="text-danger" routerLink="/register">Регистрация</a></span>
+    </div>
+  </form>
+</div>
+

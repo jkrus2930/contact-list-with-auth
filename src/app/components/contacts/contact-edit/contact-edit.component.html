@@ -1,0 +1,8 @@
+<div *ngIf="contact" class="card">
+  <div class="card-header">
+    <h2>Редактировать контак</h2>
+  </div>
+  <div class="card-body">
+    <app-contact-form [contact]="contact" (saveContactForm)="saveContact($event)"></app-contact-form>
+  </div>
+</div>

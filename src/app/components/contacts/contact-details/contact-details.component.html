@@ -1,0 +1,25 @@
+<div *ngIf="contact" class="contact-details-container">
+
+  <div class="card">
+    <div class="card-header">
+      <h2>Контакт</h2>
+    </div>
+    <div class="card-body">
+      <p>Имя: <span class="text-body">{{contact.name}}</span></p>
+      <p>Email: <span class="text-body">{{contact.email}}</span></p>
+      <p>Телефон: <span class="text-body">{{contact.phone}}</span></p>
+    </div>
+    <div class="card-footer text-muted">
+      <div class="float-left">
+        <button [routerLink]="['/contacts-list']" class="btn-form btn-save h-auto">Назад в списке</button>
+      </div>
+      <div class="float-md-right ">
+        <button [routerLink]="['/contact-edit/', contact.id]" class="btn btn-sm btn-outline-success mx-2">
+          Редактировать
+        </button>
+        <button (click)="removeContact(contact)" class="btn btn-sm btn-outline-danger mx-2">Удалить</button>
+      </div>
+
+    </div>
+  </div>
+</div>
